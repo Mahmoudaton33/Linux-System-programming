@@ -1,2 +1,10 @@
 # Linux-System-programming
 Linux Device Drivers 
+
+## Dependencies should be installed first 
+
+```c
+
+sudo apt-get update
+sudo apt-get install build-essential lzop u-boot-tools net-tools bison flex libssl-dev libncurses5-dev libncursesw5-dev unzip chrpath xz-utils minicom wget git-core
+```
