@@ -96,3 +96,36 @@ now run the following
 make -C /lib/modules/6.8.0-87-generic/build/ M=$PWD modules
 ```
 the main.ko file should be created now
+now you can use the user space program `insmod` to load this module to the host kernel
+you need first to disable secure boot to be able do that.
+if you did not do that you will see an error like `insmod: ERROR: could not insert module main.ko: Key was rejected by service`
+you can disable the secure boot with the following:
+```c
+1 - Reboot your machine
+
+2 - Enter BIOS
+
+3 - Disable Secure Boot
+
+4 - Boot into Ubuntu
+
+5 - Now try:
+```
+Now you can run:
+```c
+sudo insmod main.ko
+```
+
+## Now lets build the module for raspberry pi
+you will follow the previous steps, only change the build system path and cross compile info:
+```c
+make ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- -C ../../source/linux/ M=$PWD modules
+```
+dont forget to export the binaries of the arm toolchain before run `make` command
+```c
+export PATH=$PATH:/home/mahmoud/Desktop/ATON/Linux_Device_Drivers/Linux-Device-Drivers/Linux-System-programming/Downloads/gcc-linaro-12.2.1-2023.04-x86_64_aarch64-linux-gnu/bin
+```
+### How to print the module info?
+```c
+modinfo main.ko
+```
