@@ -20,12 +20,12 @@ https://snapshots.linaro.org/gnu-toolchain/14.0-2023.06-1/arm-linux-gnueabihf/
 ```
 
 ## Linux Kernel Modules (LKMs)
-# Static (y)
+### Static (y)
 When you build a linux kernel, you can make your module statically linked to the kernel image (module becomes part of the final linux kernel image).
 this methode increases the size of the final linux kernel image.
 Since the module is built in into the linux kernel image, you can not unload the module.
 It occupies the memory permanently during run time.
-# Dynamic (m)
+### Dynamic (m)
 When you build a linux kernel, these modules are not built into the final kernel image, and rather there are compiled and linked separately to produce .ko files.
 You can dynamically load and unload these modules from the kernel using user space programs such as (insmod, modprob, rmmod).
 
